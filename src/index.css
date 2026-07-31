@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: #08080B;
+    color: #F5F5F7;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Background Grid & Cyber Dot Overlay */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(124, 92, 255, 0.2) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08080B;
+}
+::-webkit-scrollbar-thumb {
+  background: #16161D;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7C5CFF;
+}
+
+/* Enhanced Glassmorphism Helper Classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(124, 92, 255, 0.4);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 45px -10px rgba(124, 92, 255, 0.3);
+}
+
+/* Shimmer Light Sweep Overlay for Glass Elements */
+.glass-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+  pointer-events: none;
+}
+
+.glass-shimmer:hover::before {
+  left: 150%;
+}
+
+/* Dynamic Animated Text Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #F5F5F7 0%, #B892FF 40%, #7C5CFF 70%, #00F0FF 100%);
+  background-size: 200% 200%;
+  animation: gradient-text 5s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #7C5CFF 0%, #B892FF 50%, #4C8CFF 100%);
+  background-size: 200% 200%;
+  animation: gradient-text 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Neon Glow Border Keyframe Pulse */
+.neon-border-pulse {
+  animation: border-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes border-pulse {
+  0% {
+    border-color: rgba(124, 92, 255, 0.2);
+    box-shadow: 0 0 15px rgba(124, 92, 255, 0.1);
+  }
+  100% {
+    border-color: rgba(124, 92, 255, 0.6);
+    box-shadow: 0 0 30px rgba(124, 92, 255, 0.4);
+  }
+}
