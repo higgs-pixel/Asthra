@@ -16,8 +16,8 @@ export const SYMPOSIUM_INFO = {
   registrationDeadline: "August 19, 2026",
   paperSubmissionDeadline: "August 18, 2026",
   selectionIntimation: "August 19, 2026",
-  eventFormUrl: "https://forms.gle/nBijsnndpwHh7Vwe7",
-  workshopFormUrl: "https://forms.gle/CWFHFUNyMpAFvSDB9",
+  eventFormUrl: "https://forms.gle/NoTm22MBpnqpmsVC6",
+  workshopFormUrl: "https://forms.gle/q1sHwyMEA4JRMeWN7",
 };
 
 export const ACCREDITATIONS = [
@@ -58,7 +58,7 @@ export const COMMITTEE = {
   studentCoordinators: [
     { name: "Gowtham S", phone: "90256 82495", role: "Student Coordinator" },
     { name: "JayaKavin S", phone: "96777 93571", role: "Student Coordinator" },
-    { name: "Hari Priya M", phone: "80724 02147", role: "Student Coordinator" },
+    { name: "Haripriya M", phone: "80724 02147", role: "Student Coordinator" },
     { name: "Hanisha K", phone: "7413075155", role: "Student Coordinator" },
   ],
 };
@@ -70,11 +70,13 @@ export const TECHNICAL_EVENTS = [
     category: "Technical Event",
     price: "100",
     date: "Day 1 (21.08.2026)",
-    description: "Challenge your generative AI engineering skills by constructing hyper-targeted prompts to generate complex code, UI layouts, and solve algorithmic logic in record time.",
+    description: "Challenge your generative AI engineering skills by constructing hyper-targeted prompts to create attractive websites for the given theme within the given time",
     rules: [
       "Individual participation.",
-      "Access to specified AI LLMs provided on-site.",
-      "Evaluation based on output accuracy, time taken, and prompt token efficiency.",
+      "Use any AI any IDE Platform, tools, agents and build the website.",
+      "Evaluation based on website efficiency, uniqueness.",
+      "Duration - 2.5 Hours.",
+      "Note - Participants should be aware of their tokens usage by their own."
     ],
     icon: "Sparkles",
   },
@@ -84,11 +86,12 @@ export const TECHNICAL_EVENTS = [
     category: "Technical Event",
     price: "100",
     date: "Day 1 (21.08.2026)",
-    description: "Uncover hidden syntax errors, memory leaks, and logical glitches in obfuscated code snippets across C, C++, Python, and Java.",
+    description: "Uncover hidden syntax errors, memory leaks, and logical glitches in obfuscated code snippets across C, Python, and Java.",
     rules: [
-      "Duration: 45 Minutes.",
-      "Multiple code rounds from debugging syntax to algorithmic optimization.",
+      "Multiple code rounds.",
       "Fastest error resolution wins top points.",
+      "Participants are not allowed to use the AI Tools.",
+      "Bring your own laptops, if needed system will be provided."
     ],
     icon: "Bug",
   },
@@ -98,11 +101,11 @@ export const TECHNICAL_EVENTS = [
     category: "Technical Event",
     price: "100",
     date: "Day 1 (21.08.2026)",
-    description: "Present innovative technical research posters and startup project concepts under the theme 'Emerging IT Technologies and Future Trends in Computing'.",
+    description: "Present innovative technical research posters and startup project concepts .",
     rules: [
-      "Team Size: 1 - 3 members.",
-      "Poster format: A1/A0 size or digital slide presentation.",
-      "5-minute pitch followed by 3-minute jury Q&A.",
+      "Team Size: 1-2 members.",
+      "Poster format: A1/A0 size on digital poster presentation.",
+
     ],
     icon: "Lightbulb",
   },
@@ -112,11 +115,11 @@ export const TECHNICAL_EVENTS = [
     category: "Technical Event",
     price: "100",
     date: "Day 1 (21.08.2026)",
-    description: "Test your deep algorithmic thinking, pseudo-code reverse engineering, and data structure problem solving in competitive time trials.",
+    description: "Write the code according to the given output.",
     rules: [
       "Individual coding contest.",
-      "Languages allowed: C, C++, Java, Python.",
-      "Strict zero-plagiarism policy enforced.",
+      "Using Langauges C, Java, Python.",
+      "Strict No usage of AI tools.",
     ],
     icon: "Code",
   },
@@ -131,9 +134,7 @@ export const NON_TECHNICAL_EVENTS = [
     date: "Day 1 (21.08.2026)",
     description: "Tactical blitz chess tournament designed to test strategic foresight, rapid decision-making, and mental resilience.",
     rules: [
-      "Standard FIDE rapid/blitz time control.",
-      "Knockout bracket format.",
-      "Digital chess clocks provided.",
+      "Rules will be provided onspot",
     ],
     icon: "Crown",
   },
@@ -145,8 +146,8 @@ export const NON_TECHNICAL_EVENTS = [
     date: "Day 1 (21.08.2026)",
     description: "Unleash your creativity and humor by designing tech & campus-themed viral memes based on real-time spot prompts.",
     rules: [
-      "Time Limit: 30 minutes.",
-      "Original templates or provided assets allowed.",
+      "Participants will be attending 2 rounds with having 30 mins duration respectively.",
+      "Topic will be given onspot.",
       "Judged on humor, relevance, and visual design.",
     ],
     icon: "Smile",
@@ -157,11 +158,12 @@ export const NON_TECHNICAL_EVENTS = [
     category: "Non-Technical Event",
     price: "100",
     date: "Day 1 (21.08.2026)",
-    description: "Capture the vibrant energy, futuristic vibes, and candid moments of Spring Fest 2K26 through your camera lens.",
+    description: "Capture the vibrant energy, futuristic vibes, and candid moments through your camera lens on the given Theme .",
     rules: [
-      "Mobile and DSLR cameras permitted.",
+      "Only Mobile phones permitted.",
       "Photos must be shot on campus during Day 1.",
       "No heavy manipulation; basic color correction allowed.",
+      "Both RAW and Edited Image should have to be submitted."
     ],
     icon: "Camera",
   },
@@ -184,7 +186,7 @@ export const NON_TECHNICAL_EVENTS = [
 export const WORKSHOP_DETAILS = {
   title: "Driving Digital Transformation in the Digital Era through Agentic AI and Cloud-Native Development",
   date: "22.08.2026 (Day 2)",
-  time: "09:30 AM - 04:30 PM",
+  // time: "09:30 AM - 04:30 PM",
   fee: "350",
   venue: "IT Department High-Performance Computing Lab",
   theme: "Agentic AI & Cloud-Native Architecture",
@@ -194,7 +196,7 @@ export const WORKSHOP_DETAILS = {
     "Building Multi-Agent Systems with LangChain & LangGraph",
     "Hands-on Microservices Deployment on Cloud Platforms",
     "LLM Integration with Vector Databases & RAG Pipelines",
-    "Official IEEE/Institution Workshop Certificate",
+    "Institution Workshop Certificate",
     "Complimentary Cloud Lab Vouchers & Materials",
   ],
 };
@@ -256,21 +258,22 @@ export const SCHEDULE_DAYS = [
     day: "Day 1 (21.08.2026)",
     title: "Paper Presentation & Events",
     fee: "Rs. 300 / Person (Paper Presentation) | Rs. 100 / Event",
-    formUrl: "https://forms.gle/nBijsnndpwHh7Vwe7",
+    formUrl: "https://forms.gle/NoTm22MBpnqpmsVC6",
     events: [
-      { time: "08:30 AM - 09:30 AM", title: "Inauguration & Welcome Session", venue: "Main Auditorium" },
-      { time: "09:30 AM - 12:30 PM", title: "National Paper Presentation Session", venue: "IT Seminar Hall" },
-      { time: "10:30 AM - 01:00 PM", title: "Technical Events (AI Prompt Sprint, Bug Blitz, Code Insight)", venue: "IT Labs 1 & 2" },
-      { time: "01:00 PM - 02:00 PM", title: "Lunch Break & Exhibition", venue: "College Dining Hall" },
-      { time: "02:00 PM - 04:00 PM", title: "Non-Technical Events (Chess, Meme Sprint, Snap Rush, Guess The Beat)", venue: "Activity Center" },
-      { time: "04:00 PM - 04:30 PM", title: "Day 1 Prize Distribution", venue: "Main Auditorium" },
-    ],
+      { time: "08:30 AM - 09:30 AM", title: "Inauguration & Welcome Session", venue: "Announced Soon..." },
+      { time: "Starts at 10:00 AM", title: "National Paper Presentation Session,Idea pitch", venue: "Announced Soon..." },
+      { time: "10:15 AM - 12:30 PM", title: "Technical Events (AI Prompt Sprint, Bug Blitz, Code Insight)", venue: "Announced Soon..." },
+      { time: "11:00 AM - 12:30 PM", title: "Snap Rush", venue: "Announced Soon..." },
+      { time: "12:30 PM - 01:30 PM", title: "Lunch Break ", venue: "Announced Soon..." },
+      { time: "02:00 PM - 03:00 PM", title: "Non-Technical Events (Chess, Meme Sprint)", venue: "Announced Soon..." },
+      { time: "Starts at 03.00 PM", title: "Guess The Beat", venue: "Announced Soon..." },
+    ]
   },
   {
     day: "Day 2 (22.08.2026)",
     title: "Workshop: Agentic AI & Cloud-Native Development",
     fee: "Rs. 350 / Person",
-    formUrl: "https://forms.gle/CWFHFUNyMpAFvSDB9",
+    formUrl: "https://forms.gle/q1sHwyMEA4JRMeWN7",
     events: [
       { time: "09:00 AM - 09:30 AM", title: "Workshop Registration & Kit Distribution", venue: "HPC Lab Foyer" },
       { time: "09:30 AM - 11:15 AM", title: "Session 1: Agentic AI Foundations & LangChain Architecture", venue: "HPC Lab" },

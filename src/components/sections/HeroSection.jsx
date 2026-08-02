@@ -197,7 +197,7 @@ export const HeroSection = () => {
                 <span className="px-3 py-1 text-[11px] font-extrabold uppercase rounded bg-accent-primary/20 text-accent-glow border border-accent-primary/30">
                   DAY 1 · 21.08.2026
                 </span>
-                <span className="text-xs font-extrabold text-emerald-400">Rs. 300 / Person</span>
+                
               </div>
               <h3 className="text-lg font-bold text-text-primary mb-2 group-hover:text-accent-glow transition-colors">
                 Paper Presentation &amp; Events
@@ -206,7 +206,7 @@ export const HeroSection = () => {
                 Theme: Emerging IT Technologies &amp; Future Trends in Computing. 4 Technical &amp; 4 Non-Technical events.
               </p>
               <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-semibold text-accent-primary">
-                <span>Fee: Rs. 100 / Event</span>
+          
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </GlassCard>
@@ -225,7 +225,7 @@ export const HeroSection = () => {
                 <span className="px-3 py-1 text-[11px] font-extrabold uppercase rounded bg-accent-secondary/20 text-accent-secondary border border-accent-secondary/30">
                   DAY 2 · 22.08.2026
                 </span>
-                <span className="text-xs font-extrabold text-accent-glow">Rs. 350 / Person</span>
+      
               </div>
               <h3 className="text-lg font-bold text-text-primary mb-2 group-hover:text-accent-glow transition-colors">
                 Agentic AI &amp; Cloud Workshop
@@ -234,7 +234,7 @@ export const HeroSection = () => {
                 Driving Digital Transformation in the Digital Era through Agentic AI and Cloud-Native Development.
               </p>
               <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-semibold text-accent-secondary">
-                <span>Hands-on Lab Certificate</span>
+              
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </GlassCard>
@@ -259,7 +259,7 @@ export const HeroSection = () => {
                 KSR College of Engineering
               </h3>
               <p className="text-xs text-text-secondary leading-relaxed mb-4">
-                State-of-the-art Department of IT computer centers, auditoriums, and interactive event halls.
+                Department of IT ( D Block )
               </p>
               <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-semibold text-text-muted">
                 <span>NAAC Accredited A++</span>

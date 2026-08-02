@@ -89,7 +89,7 @@ export const WorkshopPage = () => {
           {/* Registration CTA */}
           <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="text-xs text-text-muted">
-              Limited lab seats available. Certificates issued by ASTHRA Association & Department of IT.
+              Certificates issued by ASTHRA Association & Department of IT.
             </span>
           </div>
 
