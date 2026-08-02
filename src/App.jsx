@@ -9,6 +9,7 @@ import { EventsPage } from './pages/EventsPage';
 import { WorkshopPage } from './pages/WorkshopPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { GalleryPage } from './pages/GalleryPage';
+import { TeamPage } from './pages/TeamPage';
 import { ContactPage } from './pages/ContactPage';
 import { ParticleBackground } from './components/ParticleBackground';
 import { CustomCursor } from './components/CustomCursor';
@@ -31,6 +32,7 @@ function AnimatedRoutes() {
           <Route path="/workshop" element={<WorkshopPage />} />
           <Route path="/schedule" element={<SchedulePage />} />
           <Route path="/gallery"  element={<GalleryPage />} />
+          <Route path="/team"     element={<TeamPage />} />
           <Route path="/contact"  element={<ContactPage />} />
         </Routes>
       </motion.div>

@@ -186,9 +186,9 @@ export const NON_TECHNICAL_EVENTS = [
 export const WORKSHOP_DETAILS = {
   title: "Driving Digital Transformation in the Digital Era through Agentic AI and Cloud-Native Development",
   date: "22.08.2026 (Day 2)",
-  // time: "09:30 AM - 04:30 PM",
+  time: "will be updated",
   fee: "350",
-  venue: "IT Department High-Performance Computing Lab",
+  venue: "IT Department Computing Lab",
   theme: "Agentic AI & Cloud-Native Architecture",
   registrationUrl: "https://forms.gle/CWFHFUNyMpAFvSDB9",
   overview: "An intensive, hands-on masterclass led by industry architects focusing on constructing autonomous AI agents, LangChain/LangGraph orchestrations, and deploying scalable microservices on cloud-native Kubernetes infrastructure.",
@@ -275,13 +275,38 @@ export const SCHEDULE_DAYS = [
     fee: "Rs. 350 / Person",
     formUrl: "https://forms.gle/q1sHwyMEA4JRMeWN7",
     events: [
-      { time: "09:00 AM - 09:30 AM", title: "Workshop Registration & Kit Distribution", venue: "HPC Lab Foyer" },
-      { time: "09:30 AM - 11:15 AM", title: "Session 1: Agentic AI Foundations & LangChain Architecture", venue: "HPC Lab" },
-      { time: "11:15 AM - 11:30 AM", title: "Tea Break", venue: "Foyer" },
-      { time: "11:30 AM - 01:00 PM", title: "Session 2: Hands-on Lab - Building Autonomous Agents", venue: "HPC Lab" },
-      { time: "01:00 PM - 02:00 PM", title: "Networking Lunch", venue: "College Dining Hall" },
-      { time: "02:00 PM - 03:45 PM", title: "Session 3: Cloud-Native Microservices & Deployment", venue: "HPC Lab" },
-      { time: "03:45 PM - 04:30 PM", title: "Valedictory & Certificate Distribution", venue: "Main Auditorium" },
+
+      // { time: "09:00 AM - 09:30 AM", title: "Workshop Registration & Kit Distribution", venue: "HPC Lab Foyer" },
+      // { time: "09:30 AM - 11:15 AM", title: "Session 1: Agentic AI Foundations & LangChain Architecture", venue: "HPC Lab" },
+      // { time: "11:15 AM - 11:30 AM", title: "Tea Break", venue: "Foyer" },
+      // { time: "11:30 AM - 01:00 PM", title: "Session 2: Hands-on Lab - Building Autonomous Agents", venue: "HPC Lab" },
+      // { time: "01:00 PM - 02:00 PM", title: "Networking Lunch", venue: "College Dining Hall" },
+      // { time: "02:00 PM - 03:45 PM", title: "Session 3: Cloud-Native Microservices & Deployment", venue: "HPC Lab" },
+      // { time: "03:45 PM - 04:30 PM", title: "Valedictory & Certificate Distribution", venue: "Main Auditorium" },
     ],
   },
 ];
+
+export const TEAM_MEMBERS = {
+  core: [
+    { name: "JAYAKAVIN S", role: "President" },
+    { name: "GOWTHAM S", role: "President" },
+    { name: "HARIPRIYA M", role: "Vice President" },
+    { name: "RAGAVARAJA V", role: "Secretary" },
+    { name: "HANISHA K", role: "Joint Secretary" },
+    { name: "NEHAA C", role: "Treasurer" },
+    { name: "SRIBARATH B R", role: "Joint Treasurer" }
+  ],
+  executiveMembers: [
+    "SARAN", "MALAIYARASAN", "FARDHEEN", "NIVETHA K", "DHARSHINI",
+    "NITHYASREE", "SRIKRISHNA", "ABINAYA K", "GOKUL M", "LOKESH B",
+    "GOPINATH N S", "MITHUN PRASANTH A", "ISHWARYA KIRAN R", "KUMUDHA S", "VISHALINI S", "VICTOR EDWIN I", "VISHU VARTHAN P", "VISHNU VARATHAN K",
+    "RAHUL GANDHI S", "SHEIK MUHAMMED S M", "NIVETHIKA C", "DHARANI"
+  ],
+  officeBearers: [
+
+    "MEERA", "LAVANYA", "MADHUMITHA", "BHAVATARANI", "SANTOSH P",
+    "NAVANEETH Y S", "SAI SIDDHARTH L", "VARSHINI S", "NAVEENA R",
+    "SRIDHARAN", "PRANEETH P"
+  ]
+};

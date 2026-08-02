@@ -39,6 +39,39 @@ export const HeroSection = () => {
       <div className="relative max-w-7xl mx-auto px-6 z-10">
         <div className="flex flex-col items-center text-center">
 
+          {/* Offer Alerts Ticker Wrapper */}
+          <div className="w-full max-w-5xl mx-auto mb-10 mt-6 relative">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="w-full relative flex items-center bg-white/[0.03] border border-white/10 rounded-full h-12 shadow-glass-glow overflow-hidden"
+            >
+              {/* "Offers Alerts" Static Label (Properly positioned without overlap) */}
+              <div className="z-20 flex items-center px-6 h-full bg-accent-primary/20 border-r border-accent-primary/30 backdrop-blur-md">
+                <span className="text-xs font-black uppercase tracking-widest text-accent-glow whitespace-nowrap">
+                  Offers Alerts
+                </span>
+              </div>
+
+              {/* Marquee Ticker */}
+              <div className="flex-1 overflow-hidden h-full flex items-center pl-6">
+                <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused] w-max">
+                  {/* Text needs to be duplicated to ensure smooth infinite scrolling for translateX(-50%) */}
+                  <div className="flex gap-8 px-4 items-center">
+                    {[...Array(4)].map((_, i) => (
+                      <span key={i} className="text-sm font-bold text-white tracking-wide flex items-center gap-2">
+                        <span className="text-accent-cyan">💥</span> Register for Paper Presentation <span className="text-accent-primary">●</span> Get one Non Technical Event Free <span className="text-white/30 mx-2">|</span> Register for 2 Technical Events <span className="text-accent-primary">●</span> Get one Non Technical Event Free <span className="text-accent-cyan">💥</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+
+
           {/* Top Institution & Department Pill */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}

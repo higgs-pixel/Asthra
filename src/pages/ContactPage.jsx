@@ -142,13 +142,13 @@ export const ContactPage = () => {
           <div className="w-full rounded-2xl overflow-hidden border border-white/10 relative" style={{ height: '420px' }}>
             <iframe
               title="KSR College of Engineering Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.832295737154!2d77.8636!3d11.3647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96f39c2d1e9b5%3A0x6b5e2e1c0a3b4d5f!2sKSR%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.670881150976!2d77.82212429678957!3d11.358732500000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9640315f64525%3A0xb9ca1e5c305d3759!2sK.S.R.%20College%20of%20Engineerin!5e1!3m2!1sen!2sin!4v1785663836007!5m2!1sen!2sin"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'invert(92%) hue-rotate(180deg) saturate(0.8) brightness(0.85)' }}
+              style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
             {/* Overlay pin label */}
             <div className="absolute bottom-4 left-4 bg-[#08080B]/90 backdrop-blur-md border border-white/10 rounded-xl px-4 py-2.5 flex items-center gap-3 shadow-2xl">
