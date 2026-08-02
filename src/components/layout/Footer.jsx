@@ -8,7 +8,7 @@ export const Footer = () => {
     <footer className="bg-bg-surface border-t border-white/[0.08] text-text-secondary pt-16 pb-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.06]">
-          
+
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
@@ -93,9 +93,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-text-muted gap-4">
           <p>© 2026 {SYMPOSIUM_INFO.institution} — Department of IT. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Built with LanX SaaS Design & React Router
-          </p>
+
         </div>
       </div>
     </footer>

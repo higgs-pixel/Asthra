@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Image, Play, X, Volume2, VolumeX } from 'lucide-react';
 import { SectionHeading } from '../components/ui/SectionHeading';
@@ -107,6 +107,50 @@ const VideoCard = ({ onDoubleClick }) => (
   </motion.div>
 );
 
+// ─── Second Cloudinary Embed Card ────────────────────────────────────────────
+const CLOUD_NAME_2  = 'shpjbioq';
+const PUBLIC_ID_2   = 'IMG_1384_vtrsvy';
+
+const SecondVideoCard = () => {
+  const [muted, setMuted] = useState(true);
+
+  const iframeSrc = `https://player.cloudinary.com/embed/?cloud_name=${CLOUD_NAME_2}&public_id=${PUBLIC_ID_2}&fluid=true&controls=true&autoplay=true&muted=${muted}`;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay: 0.15 }}
+      className="relative group rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:shadow-accent-primary/20 hover:border-accent-primary/30 transition-all duration-300"
+    >
+      {/* Mute / Unmute toggle */}
+      <button
+        onClick={() => setMuted(prev => !prev)}
+        className="absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/20 text-white text-xs font-semibold backdrop-blur-md hover:bg-white/10 transition-colors"
+        title={muted ? 'Unmute' : 'Mute'}
+      >
+        {muted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+        {muted ? 'Unmute' : 'Mute'}
+      </button>
+
+      {/* Cloudinary embed iframe */}
+      <div className="aspect-video w-full bg-black">
+        <iframe
+          key={String(muted)}
+          src={iframeSrc}
+          width="640"
+          height="360"
+          style={{ height: 'auto', width: '100%', aspectRatio: '640 / 360', display: 'block' }}
+          allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+          allowFullScreen
+          frameBorder="0"
+          title="Asthra Symposium Video"
+        />
+      </div>
+    </motion.div>
+  );
+};
+
 // ─── Gallery Image Card ────────────────────────────────────────────────────
 const ImageCard = ({ item, index }) => (
   <motion.div
@@ -148,12 +192,21 @@ export const GalleryPage = () => {
         />
 
         {/* ── Video Feature (full-width) ── */}
-        <div className="mb-10">
+        <div className="mb-6">
           <div className="flex items-center gap-2 mb-5">
             <Play className="w-4 h-4 text-accent-primary" />
             <span className="text-xs font-black text-text-muted uppercase tracking-widest">Featured Video</span>
           </div>
           <VideoCard onDoubleClick={() => setVideoOpen(true)} />
+        </div>
+
+        {/* ── Second Video (Cloudinary iframe embed) ── */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-5">
+            <Play className="w-4 h-4 text-accent-primary" />
+            <span className="text-xs font-black text-text-muted uppercase tracking-widest">Symposium Highlights</span>
+          </div>
+          <SecondVideoCard />
         </div>
 
         {/* ── Coming Soon ── */}
