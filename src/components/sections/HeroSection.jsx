@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Sparkles, ArrowRight, Award, CheckCircle2 } from 'lucide-react';
 import { GradientButton } from '../ui/GradientButton';
@@ -8,20 +8,66 @@ import { Link } from 'react-router-dom';
 import ksrLogo from '../../assets/ksr-logo.png';
 import asthraLogo from '../../assets/asthra-logo.jpg';
 
+const LOOP_START = 20; // seconds
+
 export const HeroSection = () => {
+  const bgVideoRef = useRef(null);
+
+  useEffect(() => {
+    const video = bgVideoRef.current;
+    if (!video) return;
+
+    const seekAndPlay = () => {
+      video.currentTime = LOOP_START;
+      video.play().catch(() => {});
+    };
+
+    // If metadata is already loaded (e.g. cached), seek immediately
+    if (video.readyState >= 1) {
+      seekAndPlay();
+    } else {
+      video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+    }
+
+    const handleEnded = () => {
+      video.currentTime = LOOP_START;
+      video.play().catch(() => {});
+    };
+
+    video.addEventListener('ended', handleEnded);
+    return () => {
+      video.removeEventListener('loadedmetadata', seekAndPlay);
+      video.removeEventListener('ended', handleEnded);
+    };
+  }, []);
   return (
     <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-bg">
 
-      {/* Background Video */}
+      {/* Background Video — Cloudinary direct URL, starts & loops from 20s */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <video
+          ref={bgVideoRef}
           autoPlay
-          loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-40 scale-105"
+          preload="auto"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: '177.78vh',
+            height: '100vh',
+            minWidth: '100%',
+            minHeight: '100%',
+            transform: 'translate(-50%, -50%)',
+            objectFit: 'cover',
+            opacity: 0.45,
+          }}
         >
-          <source src="/ksr.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/shpjbioq/video/upload/q_auto/IMG_1384_vtrsvy.mp4"
+            type="video/mp4"
+          />
         </video>
         {/* Dark overlay & backdrop blur for visual hierarchy & contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-bg/85 via-bg/65 to-bg" />
