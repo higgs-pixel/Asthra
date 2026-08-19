@@ -18,6 +18,7 @@ export const SYMPOSIUM_INFO = {
   selectionIntimation: "August 19, 2026",
   eventFormUrl: "https://forms.gle/NoTm22MBpnqpmsVC6",
   workshopFormUrl: "https://forms.gle/q1sHwyMEA4JRMeWN7",
+  whatsappCommunityUrl: "https://chat.whatsapp.com/Gi4POwewvea4l31VNdB8W8",
 };
 
 export const ACCREDITATIONS = [

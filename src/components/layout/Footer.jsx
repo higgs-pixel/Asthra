@@ -70,6 +70,11 @@ export const Footer = () => {
                   Day 2 Workshop Form ↗
                 </a>
               </li>
+              <li>
+                <a href={SYMPOSIUM_INFO.whatsappCommunityUrl} target="_blank" rel="noreferrer" className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors flex items-center gap-1">
+                  Join WhatsApp Community ↗
+                </a>
+              </li>
               <li><span className="text-text-muted">Paper Submission: {SYMPOSIUM_INFO.paperSubmissionDeadline}</span></li>
               <li><span className="text-text-muted">Selection Intimation: {SYMPOSIUM_INFO.selectionIntimation}</span></li>
             </ul>
