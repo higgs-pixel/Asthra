@@ -4,12 +4,7 @@ import {
   X,
   Copy,
   Check,
-  Users,
   Sparkles,
-  Cpu,
-  Gamepad2,
-  FileText,
-  Bot,
   ArrowRight,
   MessageSquare
 } from 'lucide-react';
@@ -49,8 +44,6 @@ export const WhatsAppCommunityModal = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
-
-
 
   return (
     <>
@@ -109,7 +102,7 @@ export const WhatsAppCommunityModal = () => {
                 y: 15,
                 transition: { duration: 0.2, ease: "easeInOut" }
               }}
-              className="relative w-full max-w-xl rounded-3xl bg-bg-surface/95 border border-white/15 p-6 sm:p-8 shadow-2xl shadow-emerald-500/10 overflow-hidden z-10 backdrop-blur-2xl"
+              className="relative w-full max-w-lg rounded-3xl bg-bg-surface/95 border border-white/15 p-6 sm:p-8 shadow-2xl shadow-emerald-500/10 overflow-hidden z-10 backdrop-blur-2xl"
             >
               {/* Decorative radial glows */}
               <div className="absolute -top-24 -right-24 w-60 h-60 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
@@ -125,7 +118,7 @@ export const WhatsAppCommunityModal = () => {
               </button>
 
               {/* Header Icon, Badge & Title */}
-              <div className="flex flex-col items-center text-center space-y-3 pt-1">
+              <div className="flex flex-col items-center text-center space-y-3 pt-2">
                 <div className="relative">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#25D366] to-[#128C7E] p-0.5 shadow-lg shadow-emerald-500/30 flex items-center justify-center">
                     <div className="w-full h-full rounded-[14px] bg-[#0c1e14] flex items-center justify-center">
@@ -139,7 +132,7 @@ export const WhatsAppCommunityModal = () => {
                   </span>
                 </div>
 
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>{SYMPOSIUM_INFO.name} Community</span>
@@ -147,40 +140,15 @@ export const WhatsAppCommunityModal = () => {
                   <h3 className="text-xl sm:text-2xl font-black tracking-tight text-text-primary">
                     Join Our WhatsApp Community
                   </h3>
-                  <p className="text-xs sm:text-sm text-text-secondary max-w-md mx-auto leading-relaxed">
-                    Join our central WhatsApp community to get instant updates and connect directly with your <span className="text-emerald-400 font-semibold">respective event groups</span>!
+                  <p className="text-xs sm:text-sm text-text-secondary max-w-sm mx-auto leading-relaxed">
+                    Connect with participants & organizers to receive real-time announcements, schedule alerts, spot rules, and important links!
                   </p>
                 </div>
               </div>
 
-              {/* Event Sub-Groups Overview */}
-              <div className="my-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {eventSubgroups.map((group, idx) => {
-                  const Icon = group.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-white/15 transition-all flex items-start gap-3"
-                    >
-                      <div className={`p-2 rounded-xl border shrink-0 ${group.color}`}>
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="text-xs font-bold text-text-primary">
-                          {group.title}
-                        </div>
-                        <p className="text-[11px] text-text-muted truncate">
-                          {group.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
               {/* Link Display & Copy Button */}
-              <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/10 mb-4 flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2 min-w-0 flex-1">
+              <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/10 my-6 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span className="text-xs font-mono text-text-secondary truncate select-all">
                     {WHATSAPP_COMMUNITY_URL}
