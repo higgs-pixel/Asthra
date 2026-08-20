@@ -14,6 +14,7 @@ import { ContactPage } from './pages/ContactPage';
 import { ParticleBackground } from './components/ParticleBackground';
 import { CustomCursor } from './components/CustomCursor';
 import { WhatsAppCommunityModal } from './components/WhatsAppCommunityModal';
+import { InvitationCardModal } from './components/InvitationCardModal';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -56,6 +57,7 @@ export default function App() {
           <Footer />
         </div>
         <WhatsAppCommunityModal />
+        <InvitationCardModal />
       </div>
     </BrowserRouter>
   );

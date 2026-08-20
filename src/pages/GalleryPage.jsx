@@ -1,8 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Image, Play, X, Volume2, VolumeX } from 'lucide-react';
+import { Play, X, Volume2, VolumeX } from 'lucide-react';
 import { SectionHeading } from '../components/ui/SectionHeading';
-import { GALLERY_IMAGES } from '../data/symposiumData';
 
 // ─── Cloudinary video config ───────────────────────────────────────────────
 const CLOUD_NAME = 'shpjbioq';
@@ -41,7 +40,7 @@ const VideoModal = ({ onClose }) => (
         {/* Cloudinary iframe player — full controls */}
         <div className="aspect-video w-full bg-black">
           <iframe
-            src={`https://player.cloudinary.com/embed/?cloud_name=${CLOUD_NAME}&public_id=${PUBLIC_ID}&fluid=true&controls=true&autoplay=true&muted=false`}
+            src={`https://player.cloudinary.com/embed/?cloud_name=${CLOUD_NAME}&public_id=${PUBLIC_ID}&fluid=true&controls=true&autoplay=true&muted=false&loop=true`}
             allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
             allowFullScreen
             className="w-full h-full"
@@ -107,78 +106,63 @@ const VideoCard = ({ onDoubleClick }) => (
   </motion.div>
 );
 
-// ─── Second Cloudinary Embed Card ────────────────────────────────────────────
-const CLOUD_NAME_2  = 'shpjbioq';
-const PUBLIC_ID_2   = 'IMG_1384_vtrsvy';
-
-const SecondVideoCard = () => {
+// ─── Cloudinary Embed Video Card Component ──────────────────────────────────
+const CloudinaryEmbedCard = ({
+  cloudName = 'shpjbioq',
+  publicId,
+  title = 'Symposium Video',
+  delay = 0.1,
+  aspectRatio = 'portrait', // 'portrait' (9/16) or 'landscape' (16/9)
+}) => {
   const [muted, setMuted] = useState(true);
+  const isPortrait = aspectRatio === 'portrait' || aspectRatio === '9/16';
 
-  const iframeSrc = `https://player.cloudinary.com/embed/?cloud_name=${CLOUD_NAME_2}&public_id=${PUBLIC_ID_2}&fluid=true&controls=true&autoplay=true&muted=${muted}`;
+  const iframeSrc = `https://player.cloudinary.com/embed/?cloud_name=${cloudName}&public_id=${publicId}&fluid=true&controls=true&autoplay=true&muted=${muted}&loop=true`;
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.15 }}
-      className="relative group rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:shadow-accent-primary/20 hover:border-accent-primary/30 transition-all duration-300"
+      transition={{ duration: 0.5, delay }}
+      className={`relative group rounded-3xl overflow-hidden border border-white/10 shadow-2xl hover:shadow-accent-primary/20 hover:border-accent-primary/30 transition-all duration-300 bg-black ${
+        isPortrait ? 'w-full max-w-sm mx-auto' : 'w-full'
+      }`}
     >
       {/* Mute / Unmute toggle */}
       <button
         onClick={() => setMuted(prev => !prev)}
-        className="absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 border border-white/20 text-white text-xs font-semibold backdrop-blur-md hover:bg-white/10 transition-colors"
+        className="absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 border border-white/20 text-white text-xs font-semibold backdrop-blur-md hover:bg-white/20 transition-colors shadow-lg"
         title={muted ? 'Unmute' : 'Mute'}
       >
         {muted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-        {muted ? 'Unmute' : 'Mute'}
+        <span>{muted ? 'Unmute' : 'Mute'}</span>
       </button>
 
-      {/* Cloudinary embed iframe */}
-      <div className="aspect-video w-full bg-black">
+      {/* Cloudinary embed iframe with responsive ratio */}
+      <div className={`w-full bg-black ${isPortrait ? 'aspect-[9/16]' : 'aspect-video'}`}>
         <iframe
           key={String(muted)}
           src={iframeSrc}
-          width="640"
-          height="360"
-          style={{ height: 'auto', width: '100%', aspectRatio: '640 / 360', display: 'block' }}
+          style={{
+            height: '100%',
+            width: '100%',
+            aspectRatio: isPortrait ? '9 / 16' : '16 / 9',
+            display: 'block'
+          }}
           allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
           allowFullScreen
           frameBorder="0"
-          title="Asthra Symposium Video"
+          className="w-full h-full"
+          title={title}
         />
       </div>
     </motion.div>
   );
 };
 
-// ─── Gallery Image Card ────────────────────────────────────────────────────
-const ImageCard = ({ item, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: index * 0.07, duration: 0.5 }}
-    className="relative group rounded-2xl overflow-hidden border border-white/10 shadow-lg hover:border-white/20 hover:shadow-xl transition-all duration-300"
-  >
-    <div className="aspect-video w-full overflow-hidden bg-black">
-      <img
-        src={item.image}
-        alt={item.title}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-    </div>
-    <div className="absolute bottom-0 inset-x-0 px-4 py-3">
-      <p className="text-white font-bold text-sm">{item.title}</p>
-      <p className="text-white/50 text-xs mt-0.5">{item.category}</p>
-    </div>
-  </motion.div>
-);
-
 // ─── Page ──────────────────────────────────────────────────────────────────
 export const GalleryPage = () => {
   const [videoOpen, setVideoOpen] = useState(false);
-
-
 
   return (
     <div className="pt-28 pb-24 min-h-screen">
@@ -188,11 +172,11 @@ export const GalleryPage = () => {
           eyebrow="CAMPUS & SYMPOSIUM GLIMPSE"
           title="KSRCE & ASTHRA"
           highlight="Gallery"
-          subtitle="Explore photos of our campus, computer laboratories, keynotes, and past symposium celebrations."
+          subtitle="Explore campus glimpse, keynotes, promos, and symposium celebration highlights."
         />
 
-        {/* ── Video Feature (full-width) ── */}
-        <div className="mb-6">
+        {/* ── Featured Video (full-width) ── */}
+        <div className="mb-12">
           <div className="flex items-center gap-2 mb-5">
             <Play className="w-4 h-4 text-accent-primary" />
             <span className="text-xs font-black text-text-muted uppercase tracking-widest">Featured Video</span>
@@ -200,24 +184,74 @@ export const GalleryPage = () => {
           <VideoCard onDoubleClick={() => setVideoOpen(true)} />
         </div>
 
-        {/* ── Second Video (Cloudinary iframe embed) ── */}
-        <div className="mb-10">
+        {/* ── Symposium Highlights & Reels ── */}
+        <div className="mb-14 space-y-8">
           <div className="flex items-center gap-2 mb-5">
             <Play className="w-4 h-4 text-accent-primary" />
-            <span className="text-xs font-black text-text-muted uppercase tracking-widest">Symposium Highlights</span>
+            <span className="text-xs font-black text-text-muted uppercase tracking-widest">
+              Symposium Highlights & Reels
+            </span>
           </div>
-          <SecondVideoCard />
+
+          {/* Row 1: Promo Reel (Portrait) + Highlights (Landscape) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div className="lg:col-span-5 w-full flex justify-center">
+              <CloudinaryEmbedCard
+                cloudName="shpjbioq"
+                publicId="IMG_8914_j7a4d7"
+                title="ASTHRA Promo Reel"
+                aspectRatio="portrait"
+                delay={0.1}
+              />
+            </div>
+            <div className="lg:col-span-7 w-full flex justify-center">
+              <CloudinaryEmbedCard
+                cloudName="shpjbioq"
+                publicId="IMG_1384_vtrsvy"
+                title="ASTHRA Symposium Highlights"
+                aspectRatio="landscape"
+                delay={0.2}
+              />
+            </div>
+          </div>
+
+          {/* Row 2: Highlights 2 (Landscape) + Celebration Reel (Portrait) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div className="lg:col-span-7 w-full flex justify-center order-2 lg:order-1">
+              <CloudinaryEmbedCard
+                cloudName="shpjbioq"
+                publicId="video_3_rdb1sr"
+                title="ASTHRA Symposium Highlights 2026"
+                aspectRatio="landscape"
+                delay={0.3}
+              />
+            </div>
+            <div className="lg:col-span-5 w-full flex justify-center order-1 lg:order-2">
+              <CloudinaryEmbedCard
+                cloudName="shpjbioq"
+                publicId="VID_20260811_214802_siczwy"
+                title="ASTHRA Symposium Portrait Reel"
+                aspectRatio="portrait"
+                delay={0.4}
+              />
+            </div>
+          </div>
+
+          {/* Row 3: Event Highlights Glimpse (Landscape) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div className="lg:col-span-12 w-full max-w-5xl mx-auto flex justify-center">
+              <CloudinaryEmbedCard
+                cloudName="shpjbioq"
+                publicId="IMG_4486_m8k8kz"
+                title="ASTHRA Symposium Event Moments"
+                aspectRatio="landscape"
+                delay={0.5}
+              />
+            </div>
+          </div>
         </div>
 
-        {/* ── Coming Soon ── */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-center text-text-muted text-sm font-medium mt-8 tracking-wide"
-        >
-          🎬 More videos coming soon...
-        </motion.p>
+       
 
       </div>
 
@@ -226,3 +260,4 @@ export const GalleryPage = () => {
     </div>
   );
 };
+

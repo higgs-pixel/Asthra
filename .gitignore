@@ -21,5 +21,7 @@ Thumbs.db
 # Vite
 .vite/
 
-# Large Media
+# Large Media & Archives
 *.mp4
+*.zip
+/card.png

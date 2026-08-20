@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Sparkles, ArrowRight, Award, CheckCircle2 } from 'lucide-react';
 import { GradientButton } from '../ui/GradientButton';
@@ -8,69 +8,99 @@ import { Link } from 'react-router-dom';
 import ksrLogo from '../../assets/ksr-logo.png';
 import asthraLogo from '../../assets/asthra-logo.jpg';
 
-const LOOP_START = 20; // seconds
+const SYMPOSIUM_BG_VIDEOS = {
+  topLeft: "https://res.cloudinary.com/shpjbioq/video/upload/q_auto/IMG_1384_vtrsvy.mp4",
+  bottomLeft1: "https://res.cloudinary.com/shpjbioq/video/upload/q_auto/IMG_8914_j7a4d7.mp4",
+  bottomLeft2: "https://res.cloudinary.com/shpjbioq/video/upload/q_auto/video_3_rdb1sr.mp4",
+  topRight: "https://res.cloudinary.com/shpjbioq/video/upload/q_auto/VID_20260811_214802_siczwy.mp4",
+  bottomRight: "https://res.cloudinary.com/shpjbioq/video/upload/q_auto/IMG_4486_m8k8kz.mp4",
+};
 
 export const HeroSection = () => {
-  const bgVideoRef = useRef(null);
-
-  useEffect(() => {
-    const video = bgVideoRef.current;
-    if (!video) return;
-
-    const seekAndPlay = () => {
-      video.currentTime = LOOP_START;
-      video.play().catch(() => {});
-    };
-
-    // If metadata is already loaded (e.g. cached), seek immediately
-    if (video.readyState >= 1) {
-      seekAndPlay();
-    } else {
-      video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
-    }
-
-    const handleEnded = () => {
-      video.currentTime = LOOP_START;
-      video.play().catch(() => {});
-    };
-
-    video.addEventListener('ended', handleEnded);
-    return () => {
-      video.removeEventListener('loadedmetadata', seekAndPlay);
-      video.removeEventListener('ended', handleEnded);
-    };
-  }, []);
   return (
     <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-bg">
 
-      {/* Background Video — Cloudinary direct URL, starts & loops from 20s */}
+      {/* ── Background: All 5 Symposium Highlight Videos in Custom Collage Grid ── */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <video
-          ref={bgVideoRef}
-          autoPlay
-          muted
-          playsInline
-          preload="auto"
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '177.78vh',
-            height: '100vh',
-            minWidth: '100%',
-            minHeight: '100%',
-            transform: 'translate(-50%, -50%)',
-            objectFit: 'cover',
-            opacity: 0.45,
-          }}
-        >
-          <source
-            src="https://res.cloudinary.com/shpjbioq/video/upload/q_auto/IMG_1384_vtrsvy.mp4"
-            type="video/mp4"
-          />
-        </video>
-        {/* Dark overlay & backdrop blur for visual hierarchy & contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/85 via-bg/65 to-bg" />
+        <div className="w-full h-full flex flex-row gap-2.5 md:gap-3.5 p-2 md:p-3 opacity-75">
+          
+          {/* Left Section (2 cols wide) */}
+          <div className="flex-[1.8] flex flex-col gap-2.5 md:gap-3.5 h-full">
+            {/* Top-Left: Wide Landscape Video */}
+            <div className="h-[46%] w-full rounded-2xl overflow-hidden bg-black/70 border border-white/15 shadow-2xl relative">
+              <video
+                src={SYMPOSIUM_BG_VIDEOS.topLeft}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Bottom-Left: 2 Videos Side-by-Side */}
+            <div className="h-[54%] w-full flex flex-row gap-2.5 md:gap-3.5">
+              {/* Bottom-Left 1 (Portrait Reel) */}
+              <div className="flex-1 h-full rounded-2xl overflow-hidden bg-black/70 border border-white/15 shadow-2xl relative">
+                <video
+                  src={SYMPOSIUM_BG_VIDEOS.bottomLeft1}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Bottom-Left 2 (Moments Video) */}
+              <div className="flex-1 h-full rounded-2xl overflow-hidden bg-black/70 border border-white/15 shadow-2xl relative">
+                <video
+                  src={SYMPOSIUM_BG_VIDEOS.bottomLeft2}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Section (1 col wide) */}
+          <div className="flex-1 flex flex-col gap-2.5 md:gap-3.5 h-full">
+            {/* Top-Right: Tall Portrait Video */}
+            <div className="h-[62%] w-full rounded-2xl overflow-hidden bg-black/70 border border-white/15 shadow-2xl relative">
+              <video
+                src={SYMPOSIUM_BG_VIDEOS.topRight}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Bottom-Right: Landscape Video */}
+            <div className="h-[38%] w-full rounded-2xl overflow-hidden bg-black/70 border border-white/15 shadow-2xl relative">
+              <video
+                src={SYMPOSIUM_BG_VIDEOS.bottomRight}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Dynamic Dark Gradient Overlay for perfect content readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/75 via-bg/55 to-bg/85 pointer-events-none" />
       </div>
 
       {/* Dynamic Floating Background Particles / Light Orbs */}
